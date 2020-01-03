@@ -11,6 +11,7 @@ class AirTrafficControl
   end
 
   def land(plane = Plane.new, airport)
-    true 
+    true
+    # airport.dock(plane)
   end
 end
