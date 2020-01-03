@@ -3,7 +3,8 @@ require_relative 'airport'
 class AirTrafficControl
   attr_accessor :airport, :plane
 
-  def initalize(airport = Airport.new)
-    @airport = airport
+  def initialize(airport_class = Airport)
+    @airport_class = airport_class
+    @airport = @airport_class.new
   end
 end
