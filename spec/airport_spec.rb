@@ -19,6 +19,11 @@ describe Airport do
       airp.dock(plane_double)
       expect(airp.planes).to include(plane_double)
     end
+    it 'should raise an error if the docking station is full' do
+      airp = Airport.new
+      20.times { airp.dock }
+      expect { airp.dock }.to raise_error "Airport full"
+    end
   end
 
   describe '#remove' do
