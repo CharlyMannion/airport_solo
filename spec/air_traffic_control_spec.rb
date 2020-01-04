@@ -2,6 +2,9 @@ require 'air_traffic_control'
 require 'airport'
 require 'plane'
 
+DEFAULT_CAPACITY = 20
+
+
 describe AirTrafficControl do
   it 'responds to airport' do
     expect(subject).to respond_to :airport
@@ -32,7 +35,7 @@ describe AirTrafficControl do
     end
     it 'should not be possible to land a plane at a full airport' do
       atc = AirTrafficControl.new
-      20.times { atc.land(atc.airport) }
+      DEFAULT_CAPACITY.times { atc.land(atc.airport) }
       expect { atc.land(atc.airport) }.to raise_error "Airport full"
     end
   end

@@ -1,5 +1,6 @@
 class Airport
   attr_accessor :planes
+  DEFAULT_CAPACITY = 20
 
   def initialize
     @planes = []
@@ -16,6 +17,6 @@ class Airport
 
   private
   def full?
-    @planes.count >= 20
+    @planes.count >= DEFAULT_CAPACITY
   end
 end

@@ -1,4 +1,6 @@
 require 'airport'
+DEFAULT_CAPACITY = 20
+
 
 describe Airport do
   it 'responds to planes' do
@@ -21,7 +23,7 @@ describe Airport do
     end
     it 'should raise an error if the docking station is full' do
       airp = Airport.new
-      20.times { airp.dock }
+      DEFAULT_CAPACITY.times { airp.dock }
       expect { airp.dock }.to raise_error "Airport full"
     end
   end
