@@ -45,15 +45,15 @@ describe AirTrafficControl do
       atc = AirTrafficControl.new(airport_class_double)
       (DEFAULT_CAPACITY + 1).times { atc.land(atc.airport) }
     end
-    it 'should raise an error if the weather is stormy' do
-      plane_double = double :plane
-      airport_double = double :airport, dock: plane_double
-      airport_class_double = double :airport_class, new: airport_double
-      weather_double = double :weather, stormy?: true
-      atc = AirTrafficControl.new(airport_class_double)
-      allow(atc).to receive(:weather).and_return(weather_double)
-      expect { atc.land(airport_double) }.to raise_error "Weather too stormy to land"
-    end
+    # it 'should raise an error if the weather is stormy' do
+    #   plane_double = double :plane
+    #   airport_double = double :airport, dock: plane_double
+    #   airport_class_double = double :airport_class, new: airport_double
+    #   weather_double = double :weather, stormy?: true
+    #   atc = AirTrafficControl.new(airport_class_double)
+    #   allow(atc).to receive(:weather).and_return(weather_double)
+    #   expect { atc.land(airport_double) }.to raise_error "Weather too stormy to land"
+    # end
   end
 
   describe '#take_off' do
