@@ -23,7 +23,7 @@ class AirTrafficControl
 
   private
   def stormy?
-
+    @weather_forecast = :stormy
   end
 end
 
