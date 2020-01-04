@@ -10,7 +10,7 @@ class AirTrafficControl
     @airport = @airport_class.new
   end
 
-  def land(plane = Plane.new, airport)
+  def land(plane, airport)
     true
     # airport.dock(plane)
   end
