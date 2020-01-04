@@ -13,4 +13,8 @@ class AirTrafficControl
   def land(plane, airport)
     airport.dock(plane)
   end
+
+  def take_off(plane, airport)
+    airport.remove(plane)
+  end
 end

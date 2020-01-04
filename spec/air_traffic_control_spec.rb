@@ -27,8 +27,20 @@ describe AirTrafficControl do
       airport_double = double :airport, dock: plane_double
       airport_class_double  = double :airport_class, new: airport_double
       atc = AirTrafficControl.new(airport_class_double)
-      atc.land(plane_double, atc.airport)
-      expect(atc.airport).to have_received(:dock).with(plane_double)
+      atc.land(plane_double, airport_double)
+      expect(airport_double).to have_received(:dock).with(plane_double)
+    end
+  end
+
+  describe '#take_off' do
+    it 'should tell the aiport which plane to take off' do
+      plane_double = double :plane
+      airport_double = double :airport, dock: plane_double, remove: plane_double
+      airport_class_double  = double :airport_class, new: airport_double
+      atc = AirTrafficControl.new(airport_class_double)
+      atc.land(plane_double, airport_double)
+      atc.take_off(plane_double, airport_double)
+      expect(airport_double).to have_received(:remove).with(plane_double)
     end
   end
 
