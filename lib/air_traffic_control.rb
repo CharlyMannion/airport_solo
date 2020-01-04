@@ -3,11 +3,12 @@ require_relative 'plane'
 require_relative 'weather'
 
 class AirTrafficControl
-  attr_accessor :airport, :plane
+  attr_accessor :airport, :plane, :weather_forecast
 
-  def initialize(airport_class = Airport)
+  def initialize(airport_class = Airport, weather_forecast = Weather.new.condition)
     @airport_class = airport_class
     @airport = @airport_class.new
+    @weather_forecast  = weather_forecast
   end
 
   def land(plane = Plane.new, airport)
@@ -22,7 +23,7 @@ class AirTrafficControl
 
   private
   def stormy?
-    
+
   end
 end
 

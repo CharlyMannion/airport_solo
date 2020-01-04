@@ -4,7 +4,7 @@ class Weather
   attr_accessor :condition
 
   def initialize
-    @condition = 'fine'
+    @condition = :fine
   end
 
   def check_weather

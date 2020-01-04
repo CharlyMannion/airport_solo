@@ -15,12 +15,19 @@ describe AirTrafficControl do
   it 'responds to land' do
     expect(subject).to respond_to :land
   end
+  it 'responds to weather_forecast' do
+    expect(subject).to respond_to :weather_forecast
+  end
 
   describe '#initialize' do
     it 'has an instance of the aiport class' do
       airport_double = double :airport
       airport_class_double = double :airport_class, new: airport_double
       allow(AirTrafficControl).to receive(:new).and_return(airport_double)
+    end
+    it 'knows the weather' do
+      atc = AirTrafficControl.new
+      expect(atc.weather_forecast).to eq(:fine)
     end
   end
 
@@ -49,7 +56,7 @@ describe AirTrafficControl do
     #   plane_double = double :plane
     #   airport_double = double :airport, dock: plane_double
     #   airport_class_double = double :airport_class, new: airport_double
-    #   weather_double = double :weather, stormy?: true
+    #   weather_double = double :weather, condition: :stormy
     #   atc = AirTrafficControl.new(airport_class_double)
     #   allow(atc).to receive(:weather).and_return(weather_double)
     #   expect { atc.land(airport_double) }.to raise_error "Weather too stormy to land"
