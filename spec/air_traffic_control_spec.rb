@@ -36,7 +36,11 @@ describe AirTrafficControl do
       plane_double = double :plane
       airport_double = double :airport, dock: plane_double
       airport_class_double = double :airport_class, new: airport_double
+      # weather_double = double :weather, condition: :fine
       atc = AirTrafficControl.new(airport_class_double)
+      allow(atc).to receive(:weather_forecast).and_return(:fine)
+      p atc.weather_forecast
+      # allow(atc).to receive(:weather_forecast).and_return(weather_double)
       atc.land(plane_double, airport_double)
       expect(airport_double).to have_received(:dock).with(plane_double)
     end
@@ -56,9 +60,11 @@ describe AirTrafficControl do
       plane_double = double :plane
       airport_double = double :airport, dock: plane_double
       airport_class_double = double :airport_class, new: airport_double
-      weather_double = double :weather, condition: :stormy
+      # weather_double = double :weather, condition: :stormy
       atc = AirTrafficControl.new(airport_class_double)
-      allow(atc).to receive(:weather_forecast).and_return(weather_double)
+      allow(atc).to receive(:weather_forecast).and_return(:stormy)
+      p "fail if in the function"
+      p atc.weather_forecast
       expect { atc.land(airport_double) }.to raise_error "Weather too stormy to land"
     end
   end
