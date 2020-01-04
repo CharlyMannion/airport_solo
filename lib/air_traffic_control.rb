@@ -11,11 +11,18 @@ class AirTrafficControl
   end
 
   def land(plane = Plane.new, airport)
+    fail "Weather too stormy to land" if stormy?
+
     airport.dock(plane)
   end
 
   def take_off(plane, airport)
     airport.remove(plane)
+  end
+
+  private
+  def stormy?
+    
   end
 end
 
