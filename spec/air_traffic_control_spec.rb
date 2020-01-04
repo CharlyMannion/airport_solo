@@ -21,15 +21,16 @@ describe AirTrafficControl do
     end
   end
 
-  # describe '#land' do
-  #   it 'should land a plane at an airport' do
-  #     airport_double = double :airport
-  #     airport_class_double  = double :airport_class, new: airport_double
-  #     atc = AirTrafficControl.new(airport_class_double)
-  #     plane_double = double :plane
-  #     atc.land(plane_double, atc.airport)
-  #   end
-  # end
+  describe '#land' do
+    it 'should land a plane at an airport' do
+      airport_double = double :airport
+      airport_class_double  = double :airport_class, new: airport_double
+      atc = AirTrafficControl.new(airport_class_double)
+      plane_double = double :plane
+      atc.land(plane_double, atc.airport)
+      expect(airport_double).to receive(:dock).with(plane_double)
+    end
+  end
 
 end
 
