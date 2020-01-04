@@ -16,7 +16,7 @@ describe AirTrafficControl do
   describe '#initialize' do
     it 'has an instance of the aiport class' do
       airport_double = double :airport
-      airport_class_double  = double :airport_class, new: airport_double
+      airport_class_double = double :airport_class, new: airport_double
       allow(AirTrafficControl).to receive(:new).and_return(airport_double)
     end
   end
@@ -25,7 +25,7 @@ describe AirTrafficControl do
     it 'should land a plane at an airport' do
       plane_double = double :plane
       airport_double = double :airport, dock: plane_double
-      airport_class_double  = double :airport_class, new: airport_double
+      airport_class_double = double :airport_class, new: airport_double
       atc = AirTrafficControl.new(airport_class_double)
       atc.land(plane_double, airport_double)
       expect(airport_double).to have_received(:dock).with(plane_double)
@@ -36,7 +36,7 @@ describe AirTrafficControl do
     it 'should tell the aiport which plane to take off' do
       plane_double = double :plane
       airport_double = double :airport, dock: plane_double, remove: plane_double
-      airport_class_double  = double :airport_class, new: airport_double
+      airport_class_double = double :airport_class, new: airport_double
       atc = AirTrafficControl.new(airport_class_double)
       atc.land(plane_double, airport_double)
       atc.take_off(plane_double, airport_double)

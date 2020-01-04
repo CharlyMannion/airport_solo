@@ -10,6 +10,6 @@ class Airport
   end
 
   def remove(plane)
-    @planes = @planes - [plane]
+    @planes -= [plane]
   end
 end
