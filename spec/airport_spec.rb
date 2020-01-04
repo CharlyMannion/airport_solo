@@ -1,7 +1,6 @@
 require 'airport'
 DEFAULT_CAPACITY = 20
 
-
 describe Airport do
   it 'responds to planes' do
     expect(subject).to respond_to :planes
@@ -11,6 +10,10 @@ describe Airport do
     it 'should have no planes' do
       airp = Airport.new
       expect(airp.planes).to eq([])
+    end
+    it 'should have a default capacity' do
+      airp = Airport.new
+      expect(airp.capacity).to eq(DEFAULT_CAPACITY)
     end
   end
 

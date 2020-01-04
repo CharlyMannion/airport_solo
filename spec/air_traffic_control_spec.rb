@@ -4,7 +4,6 @@ require 'plane'
 
 DEFAULT_CAPACITY = 20
 
-
 describe AirTrafficControl do
   it 'responds to airport' do
     expect(subject).to respond_to :airport
