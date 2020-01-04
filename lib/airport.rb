@@ -8,4 +8,8 @@ class Airport
   def dock(plane)
     @planes << plane
   end
+
+  def remove(plane)
+    @planes = @planes-[plane]
+  end
 end
