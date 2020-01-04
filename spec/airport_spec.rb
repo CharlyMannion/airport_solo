@@ -15,6 +15,10 @@ describe Airport do
       airp = Airport.new
       expect(airp.capacity).to eq(DEFAULT_CAPACITY)
     end
+    it 'should accept a capacity greater than default capacity' do
+      airp = Airport.new(capacity=30)
+      expect(airp.capacity).to eq(30)
+    end
   end
 
   describe '#dock' do
