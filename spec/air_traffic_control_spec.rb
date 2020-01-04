@@ -50,4 +50,7 @@ end
 # atc = AirTrafficControl.new
 # plane = Plane.new
 # atc.land(plane, atc.airport)
-# atc.airport.plane
+# atc.airport.planes
+# atc.take_off(plane, atc.airport)
+# atc.airport.planes
+# plane

@@ -17,3 +17,13 @@ class AirTrafficControl
     airport.remove(plane)
   end
 end
+
+# feature test in console: 
+# ruby lib/air_traffic_control.rb
+# p atc = AirTrafficControl.new
+# p plane = Plane.new
+# p atc.land(plane, atc.airport)
+# p atc.airport.planes
+# p atc.take_off(plane, atc.airport)
+# p atc.airport.planes
+# p plane
