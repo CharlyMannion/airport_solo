@@ -9,7 +9,7 @@ class Airport
 
   def dock(plane = Plane.new)
     fail "Airport full" if full?
-    
+
     @planes << plane
   end
 
@@ -19,6 +19,6 @@ class Airport
 
   private
   def full?
-    @planes.count >= DEFAULT_CAPACITY
+    @planes.count >= @capacity
   end
 end

@@ -16,8 +16,12 @@ describe Airport do
       expect(airp.capacity).to eq(DEFAULT_CAPACITY)
     end
     it 'should accept a capacity greater than default capacity' do
-      airp = Airport.new(capacity=30)
+      airp = Airport.new(capacity = 30)
       expect(airp.capacity).to eq(30)
+    end
+    it 'should allow more planes to land if the capacity is higher than the default' do
+      airp = Airport.new(capacity = 30)
+      (DEFAULT_CAPACITY + 1).times { airp.dock }
     end
   end
 

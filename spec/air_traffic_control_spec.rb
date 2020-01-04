@@ -37,6 +37,13 @@ describe AirTrafficControl do
       DEFAULT_CAPACITY.times { atc.land(atc.airport) }
       expect { atc.land(atc.airport) }.to raise_error "Airport full"
     end
+    it 'should be able to land more than the default capacity for an airport, if the default capacity has been overriden' do
+      plane_double = double :plane
+      airport_double = double :airport, dock: plane_double, capacity: 30
+      airport_class_double = double :airport_class, new: airport_double
+      atc = AirTrafficControl.new(airport_class_double)
+      (DEFAULT_CAPACITY + 1).times { atc.land(atc.airport) }
+    end
   end
 
   describe '#take_off' do
