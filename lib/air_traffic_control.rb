@@ -9,7 +9,7 @@ class AirTrafficControl
     @airport = @airport_class.new
   end
 
-  def land(plane, airport)
+  def land(plane = Plane.new, airport)
     airport.dock(plane)
   end
 
@@ -18,11 +18,14 @@ class AirTrafficControl
   end
 end
 
-# feature test in console: 
+# feature test in console:
 # ruby lib/air_traffic_control.rb
 # p atc = AirTrafficControl.new
 # p plane = Plane.new
 # p atc.land(plane, atc.airport)
+# 19.times { atc.land(atc.airport) }
+# p atc.airport.planes
+# atc.land(atc.airport)
 # p atc.airport.planes
 # p atc.take_off(plane, atc.airport)
 # p atc.airport.planes

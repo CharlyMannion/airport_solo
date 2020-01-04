@@ -30,6 +30,11 @@ describe AirTrafficControl do
       atc.land(plane_double, airport_double)
       expect(airport_double).to have_received(:dock).with(plane_double)
     end
+    it 'should not be possible to land a plane at a full airport' do
+      atc = AirTrafficControl.new
+      20.times { atc.land(atc.airport) }
+      expect { atc.land(atc.airport) }.to raise_error "Airport full"
+    end
   end
 
   describe '#take_off' do
