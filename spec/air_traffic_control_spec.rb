@@ -34,3 +34,6 @@ end
 
 # require './lib/air_traffic_control.rb'
 # atc = AirTrafficControl.new
+# plane = Plane.new
+# atc.land(plane, atc.airport)
+# atc.airport.plane
