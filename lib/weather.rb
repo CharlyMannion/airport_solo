@@ -1,4 +1,6 @@
 class Weather
+  POSSIBLE_CONDITIONS = [:stormy, :rain]
+
   attr_accessor :condition
 
   def initialize
@@ -11,6 +13,6 @@ class Weather
 
   private
   def randomise
-    [:stormy, :rain].sample
+    POSSIBLE_CONDITIONS.sample
   end
 end
