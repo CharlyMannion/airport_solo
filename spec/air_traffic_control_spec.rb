@@ -1,6 +1,7 @@
 require 'air_traffic_control'
 require 'airport'
 require 'plane'
+require 'weather'
 
 DEFAULT_CAPACITY = 20
 
@@ -55,6 +56,9 @@ describe AirTrafficControl do
       atc.land(plane_double, airport_double)
       atc.take_off(plane_double, airport_double)
       expect(airport_double).to have_received(:remove).with(plane_double)
+    end
+    it 'should raise an error if the weather is stormy' do
+
     end
   end
 

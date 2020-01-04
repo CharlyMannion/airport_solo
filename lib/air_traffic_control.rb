@@ -1,5 +1,6 @@
 require_relative 'airport'
 require_relative 'plane'
+require_relative 'weather'
 
 class AirTrafficControl
   attr_accessor :airport, :plane
