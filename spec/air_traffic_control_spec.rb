@@ -60,9 +60,8 @@ describe AirTrafficControl do
       airport_class_double = double :airport_class, new: airport_double
       # weather_double = double :weather, condition: :stormy
       atc = AirTrafficControl.new(airport_class_double)
-      allow(atc).to receive(:weather_forecast).and_return(:stormy)
-      p "in the raise error function"
-      p atc.weather_forecast
+      # allow(atc).to receive(:weather_forecast).and_return(:stormy)
+      allow(atc).to receive(:stormy?).and_return(true)
       expect { atc.land(airport_double) }.to raise_error "Weather too stormy to land"
     end
   end
