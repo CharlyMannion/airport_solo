@@ -12,7 +12,11 @@ describe Weather do
   describe 'check_weather' do
     it 'should change the weather condition' do
       p allow(weather).to receive(:check_weather) { :rain }
-      p weather.condition
+      # p "first condit below"
+      # p weather.condition
+      # p weather.check_weather
+      # p "second condit below"
+      # p weather.condition
       # p expect(subject.condition).to eq(:rain)
     end
   end
