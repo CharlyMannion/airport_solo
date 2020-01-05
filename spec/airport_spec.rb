@@ -5,8 +5,6 @@ describe Airport do
   subject(:airp) { described_class.new }
   subject(:airpcapac) { described_class.new(capacity = 30) }
   let(:plane_double) { double :plane }
-  # let(:airport_double) { double :airport, dock: plane_double, remove: plane_double }
-
 
   it 'responds to planes' do
     expect(subject).to respond_to :planes
