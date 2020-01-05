@@ -10,8 +10,12 @@ describe Weather do
 
   describe 'check_weather' do
     it 'should change the weather condition' do
-      obj = double :weather
-      obj.stub(:check_weather) { :rain }
+      obj = Weather.new
+      p obj.condition
+      p "check weather and return rain"
+      p allow(obj).to receive(:check_weather) { :rain }
+      p obj.condition
+      p expect(obj.condition).to eq(:rain)
     end
   end
 end

@@ -8,11 +8,11 @@ class Weather
   end
 
   def check_weather
-    @condition = weather.randomise
+    @condition = POSSIBLE_CONDITIONS.sample
   end
 
-  private
-  def randomise
-    POSSIBLE_CONDITIONS.sample
-  end
+  # private
+  # def randomise
+  #   POSSIBLE_CONDITIONS.sample
+  # end
 end
