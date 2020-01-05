@@ -34,6 +34,10 @@ describe Airport do
       DEFAULT_CAPACITY.times { airp.dock }
       expect { airp.dock }.to raise_error "Airport full"
     end
+    it 'should raise an error if you try to dock a plane that has landed' do
+      airp.dock(plane_double)
+      expect { airp.dock(plane_double) }.to raise_error "Plane has already landed"
+    end
   end
 
   describe '#remove' do
@@ -41,6 +45,9 @@ describe Airport do
       airp.dock(plane_double)
       airp.remove(plane_double)
       expect(airp.planes).to eq([])
+    end
+    it 'should raise an error if the plane is not in the airport' do
+      expect { airp.remove(plane_double) }.to raise_error "Plane not docked at this airport"
     end
   end
 end

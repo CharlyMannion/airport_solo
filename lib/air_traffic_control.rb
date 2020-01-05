@@ -34,6 +34,7 @@ end
 # p atc = AirTrafficControl.new
 # p plane = Plane.new
 # p atc.land(plane, atc.airport)
+# p atc.land(plane, atc.airport)
 # 19.times { atc.land(atc.airport) }
 # p atc.airport.planes
 # atc.land(atc.airport)
