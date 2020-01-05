@@ -10,12 +10,9 @@ describe Weather do
 
   describe 'check_weather' do
     it 'should change the weather condition' do
-      obj = Weather.new
-      p obj.condition
-      p "check weather and return rain"
-      p allow(obj).to receive(:check_weather) { :rain }
-      p obj.condition
-      p expect(obj.condition).to eq(:rain)
+      p allow(subject).to receive(:check_weather) { :rain }
+      p subject.condition
+      # p expect(subject.condition).to eq(:rain)
     end
   end
 end
