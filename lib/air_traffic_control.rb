@@ -8,7 +8,7 @@ class AirTrafficControl
   def initialize(airport_class = Airport, weather_forecast = Weather.new.condition)
     @airport_class = airport_class
     @airport = @airport_class.new
-    @weather_forecast  = weather_forecast
+    @weather_forecast = weather_forecast
   end
 
   def land(plane = Plane.new, airport)
