@@ -41,13 +41,14 @@ describe AirTrafficControl do
   end
 
   describe '#take_off' do
-    it 'should tell the aiport which plane to take off' do
+    before do
       atc.land(plane_double, airport_double)
+    end
+    it 'should tell the aiport which plane to take off' do
       atc.take_off(plane_double, airport_double)
       expect(airport_double).to have_received(:remove).with(plane_double)
     end
     it 'should raise an error if the weather is stormy' do
-      atc.land(plane_double, airport_double)
       allow(atc).to receive(:stormy?).and_return(true)
       expect { atc.take_off(plane_double, airport_double) }.to raise_error "Weather too stormy to take off"
     end
