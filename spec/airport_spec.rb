@@ -2,38 +2,37 @@ require 'airport'
 DEFAULT_CAPACITY = 20
 
 describe Airport do
+  subject(:airp) { described_class.new }
+  subject(:airpcapac) { described_class.new(capacity = 30) }
+  let(:plane_double) { double :plane }
+  # let(:airport_double) { double :airport, dock: plane_double, remove: plane_double }
+
+
   it 'responds to planes' do
     expect(subject).to respond_to :planes
   end
 
   describe '#initialize' do
     it 'should have no planes' do
-      airp = Airport.new
       expect(airp.planes).to eq([])
     end
     it 'should have a default capacity' do
-      airp = Airport.new
       expect(airp.capacity).to eq(DEFAULT_CAPACITY)
     end
     it 'should accept a capacity greater than default capacity' do
-      airp = Airport.new(capacity = 30)
-      expect(airp.capacity).to eq(30)
+      expect(airpcapac.capacity).to eq(30)
     end
     it 'should allow more planes to land if the capacity is higher than the default' do
-      airp = Airport.new(capacity = 30)
-      (DEFAULT_CAPACITY + 1).times { airp.dock }
+      (DEFAULT_CAPACITY + 1).times { airpcapac.dock }
     end
   end
 
   describe '#dock' do
     it 'should add a plane to planes' do
-      airp = Airport.new
-      plane_double = double :plane
       airp.dock(plane_double)
       expect(airp.planes).to include(plane_double)
     end
     it 'should raise an error if the docking station is full' do
-      airp = Airport.new
       DEFAULT_CAPACITY.times { airp.dock }
       expect { airp.dock }.to raise_error "Airport full"
     end
@@ -41,8 +40,6 @@ describe Airport do
 
   describe '#remove' do
     it 'should remove a plane from the aiport' do
-      airp = Airport.new
-      plane_double = double :plane
       airp.dock(plane_double)
       airp.remove(plane_double)
       expect(airp.planes).to eq([])
