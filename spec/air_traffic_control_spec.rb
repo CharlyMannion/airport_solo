@@ -77,7 +77,13 @@ describe AirTrafficControl do
       expect(airport_double).to have_received(:remove).with(plane_double)
     end
     it 'should raise an error if the weather is stormy' do
-
+      plane_double = double :plane
+      airport_double = double :airport, dock: plane_double, remove: plane_double
+      airport_class_double = double :airport_class, new: airport_double
+      atc = AirTrafficControl.new(airport_class_double)
+      atc.land(plane_double, airport_double)
+      allow(atc).to receive(:stormy?).and_return(true)
+      expect { atc.take_off(plane_double, airport_double) }.to raise_error "Weather too stormy to take off"
     end
   end
 

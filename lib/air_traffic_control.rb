@@ -18,6 +18,8 @@ class AirTrafficControl
   end
 
   def take_off(plane, airport)
+    fail "Weather too stormy to take off" if stormy?
+
     airport.remove(plane)
   end
 
