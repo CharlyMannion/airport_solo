@@ -49,7 +49,8 @@ I want to prevent landing when weather is stormy
 Getting Started
 ---------
 * Fork this repo
-* Clone to your local machine git clone git@github.com:CharlyMannion/airport_challenge.git
+* Clone to your local machine
+`git clone https://github.com/CharlyMannion/airport_solo`
 * Run the command gem install bundle (if you don't have bundle already)
 * When the installation completes, run bundle
 * Run the command gem install bundle (if you don't have bundle already)
@@ -70,4 +71,4 @@ How I approached this challenge
 * I ran rubocop regularly to help me improve my code.
 * I wrote code to defend against edge cases, such as inconsistent states of the system ensuring that planes can only take off from airports they are in; planes that are already flying cannot take off and/or be in an airport; planes that are landed cannot land again and must be in an airport, etc
 * I achieved 100% Test coverage
-* When I was happy with the program at a particular point, I attempted to refactor to follow principles such as DRY.
+* When I was happy with the program at a particular point, I attempted to refactor to follow principles such as DRY
